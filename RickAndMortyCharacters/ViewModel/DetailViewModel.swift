@@ -10,7 +10,7 @@ import Foundation
 class DetailViewModel {
     
     func getCharacterInfoList(character: Character) -> [Section] {
-        return [.gender(character.gender ?? "Not Found"),
+        return [.gender(character.gender?.rawValue ?? "Not Found"),
                 .species(character.species ?? "Not Found"),
                 .type(character.type ?? "Not Found"),
                 .origin(character.origin?.name ?? "Not Found")]

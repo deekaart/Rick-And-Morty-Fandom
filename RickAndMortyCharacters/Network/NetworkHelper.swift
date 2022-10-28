@@ -28,6 +28,7 @@ public struct NetworkHelper {
 
     func makeAPIRequestBy(url: String) async throws -> Data {
         if let url = URL(string: url) {
+            print("REQUESTING: \(url)")
             let (data, response) = try await URLSession.shared.data(from: url)
 
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, 200..<299 ~= statusCode else {

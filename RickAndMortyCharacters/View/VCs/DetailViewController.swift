@@ -42,8 +42,6 @@ class DetailViewController: BaseViewController<DetailViewModel> {
     private lazy var characterImageView: UIImageView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 300.0, height: 300.0))
 
-//        self.view.addSubview(view)
-
         view.backgroundColor = .darkGray
         view.layer.cornerRadius = view.frame.height / 2
         view.layer.masksToBounds = true
@@ -55,8 +53,6 @@ class DetailViewController: BaseViewController<DetailViewModel> {
     private lazy var statusLabel: UILabel = {
         let label = UILabel()
 
-//        self.view.addSubview(label)
-
         label.font = UIFont.systemFont(ofSize: 20.0, weight: .regular)
         label.textColor = Colors.shared.text
 
@@ -66,27 +62,27 @@ class DetailViewController: BaseViewController<DetailViewModel> {
             return UILabel()
         }
 
-        print(self.character!.status!)
+        guard let character = self.character else { return UILabel() }
 
-        switch self.character!.status! {
-        case "Alive":
+        switch character.status {
+        case .alive:
             image = image.withTintColor(.systemGreen)
-        case "Dead":
+        case .dead:
             image = image.withTintColor(.systemRed)
-        case "Unknown":
+        case .unknown:
             image = image.withTintColor(.systemPurple)
-        default:
+        case .none:
             image = image.withTintColor(.systemPurple)
         }
 
         let imageAttachment = NSTextAttachment(image: image)
-        imageAttachment.bounds = CGRect(x: 0, y: 0, width: imageWidthHeight, height: imageWidthHeight)
+        imageAttachment.bounds = CGRect(x: 0, y: -0.5, width: imageWidthHeight, height: imageWidthHeight)
 
         let attachmentString = NSAttributedString(attachment: imageAttachment)
 
         let completeText = NSMutableAttributedString(string: "")
         completeText.append(attachmentString)
-        let textAfterIcon = NSAttributedString(string: " \(character?.status ?? "Not Found")")
+        let textAfterIcon = NSAttributedString(string: " \(character.status?.rawValue ?? "Not Found")")
         completeText.append(textAfterIcon)
 
         label.textAlignment = .center
@@ -100,8 +96,6 @@ class DetailViewController: BaseViewController<DetailViewModel> {
     private lazy var characterNameLabel: UILabel = {
         let view = UILabel()
 
-//        self.view.addSubview(view)
-
         view.textColor = Colors.shared.text
         view.font = UIFont.systemFont(ofSize: 36.0, weight: .medium)
         view.textAlignment = .center
@@ -113,8 +107,6 @@ class DetailViewController: BaseViewController<DetailViewModel> {
 
     private lazy var detailedInfoTableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
-
-//        self.view.addSubview(view)
 
         view.delegate = self
         view.dataSource = self
@@ -234,15 +226,5 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         return cell
-    }
-}
-
-extension DetailViewController {
-    private func calculateTableViewHeight() {
-        let numberOfSections = info.count
-        var height = 0
-        for i in 0...numberOfSections-1 {
-            height = height + self.detailedInfoTableView.numberOfRows(inSection: i)
-        }
     }
 }

@@ -22,20 +22,25 @@ class HomeViewController: BaseViewController<HomeViewModel> {
 
     private var filteredCharactersList: [Character] = [] {
         didSet {
-            print("charactersList: \(filteredCharactersList.count)")
+            print("filteredCharactersList: \(filteredCharactersList.count)")
             DispatchQueue.main.async {
                 self.charactersTableView.reloadData()
             }
         }
     }
-    var pageNumber = 1
-    var filterPageNumber = 0
-    var filterOption: CharacterFilter?
-    var value: String?
 
-    private lazy var searchResultsVC: SearchResultsController = {
-        return SearchResultsController(vm: HomeViewModel())
-    }()
+    private var pageNumber = 1
+    private var filterPageNumber = 0
+    private var filterOption: CharacterFilter?
+    private var value: String?
+
+    private var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+
+    private var isFiltering: Bool {
+      return searchController.isActive && (!isSearchBarEmpty)
+    }
 
     private lazy var searchController: UISearchController = {
         return UISearchController(searchResultsController: nil)
@@ -68,10 +73,6 @@ class HomeViewController: BaseViewController<HomeViewModel> {
         self.feedTableView(for: self.pageNumber)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        print(searchController.isActive)
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         self.viewModel.cleanUpCache()
@@ -84,13 +85,14 @@ class HomeViewController: BaseViewController<HomeViewModel> {
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(16)
             make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-16)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            make.bottom.equalToSuperview()
         }
     }
 
     private func setupNavBar() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.tintColor = UIColor.appColor(.rmgreen)
 
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -107,8 +109,7 @@ class HomeViewController: BaseViewController<HomeViewModel> {
         self.charactersTableView.addSubview(self.refreshControl)
     }
 
-    func filterContentForSearchText(_ searchText: String,
-                                    category: CharacterFilter) {
+    func filterContentForSearchText(_ searchText: String, category: CharacterFilter) {
         self.filteredCharactersList = []
 
         self.filteredCharactersList = self.charactersList.filter { (character: Character) -> Bool in
@@ -121,20 +122,12 @@ class HomeViewController: BaseViewController<HomeViewModel> {
                 case .species:
                     return character.species!.lowercased().contains(searchText.lowercased())
                 case .status:
-                    return character.status!.lowercased().contains(searchText.lowercased())
+                    return character.status!.rawValue.lowercased().contains(searchText.lowercased())
                 case .gender:
-                    return character.gender!.lowercased().contains(searchText.lowercased())
+                    return character.gender!.rawValue.lowercased().contains(searchText.lowercased())
                 }
             }
         }
-    }
-
-    private var isSearchBarEmpty: Bool {
-      return searchController.searchBar.text?.isEmpty ?? true
-    }
-
-    private var isFiltering: Bool {
-      return searchController.isActive && (!isSearchBarEmpty)
     }
 
     private func feedTableView(for pageNumber: Int) {
@@ -167,8 +160,8 @@ class HomeViewController: BaseViewController<HomeViewModel> {
     }
 
     @objc func didPullToRefresh() {
-        self.viewModel.cleanUpCache()
         self.charactersList.removeAll()
+        self.viewModel.cleanUpCache()
         self.feedTableView(for: 1)
     }
 
@@ -242,7 +235,6 @@ extension HomeViewController: UISearchResultsUpdating {
 
     @objc func reload(_ searchBar: UISearchBar) {
         let category = CharacterFilter(rawValue: searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex].lowercased())
-        print(searchBar.text!)
         filterContentForSearchText(searchBar.text!, category: category!)
     }
 }

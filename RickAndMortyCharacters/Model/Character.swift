@@ -10,10 +10,10 @@ import Foundation
 public struct Character: Codable, Identifiable {
     public let id: Int?
     public let name: String?
-    public let status: String?
+    public let status: Status?
     public let species: String?
     public let type: String?
-    public let gender: String?
+    public let gender: Gender?
     public let origin: Origin?
     public let image: String?
 }
@@ -28,19 +28,17 @@ extension Character: Hashable {
     }
 }
 
-public enum Status: String {
-    case alive
-    case dead
+public enum Status: String, Codable {
+    case alive = "Alive"
+    case dead = "Dead"
     case unknown = "unknown"
-    case none = ""
 }
 
-public enum Gender: String {
-    case female
-    case male
-    case genderless
+public enum Gender: String, Codable {
+    case female = "Female"
+    case male = "Male"
+    case genderless = "Genderless"
     case unknown = "unknown"
-    case none = ""
 }
 
 public enum CharacterFilter: String, CaseIterable {

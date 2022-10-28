@@ -22,11 +22,11 @@
 		FA6FAD71290AF8AE00411378 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FAD70290AF8AE00411378 /* BaseViewController.swift */; };
 		FA6FAD7B290B10B400411378 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA6FAD7A290B10B400411378 /* Kingfisher */; };
 		FA6FAD82290B347200411378 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FAD81290B347200411378 /* DetailViewModel.swift */; };
-		FABDE2D6290B457600BEE9AE /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDE2D5290B457600BEE9AE /* SearchResultsController.swift */; };
 		FABDE2DA290BBB6700BEE9AE /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDE2D9290BBB6700BEE9AE /* Section.swift */; };
 		FABDE2DF290BCB0400BEE9AE /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDE2DE290BCB0400BEE9AE /* UIImage+Ext.swift */; };
 		FABDE2E1290C12BC00BEE9AE /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABDE2E0290C12BC00BEE9AE /* Colors.xcassets */; };
 		FABDE2E3290C2C1200BEE9AE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDE2E2290C2C1200BEE9AE /* Colors.swift */; };
+		FABDE2E8290C5D1D00BEE9AE /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABDE2E7290C5D1D00BEE9AE /* AppIcon.xcassets */; };
 		FAE22ECB290AC8C100D901B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE22ECA290AC8C100D901B6 /* AppDelegate.swift */; };
 		FAE22ECD290AC8C100D901B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE22ECC290AC8C100D901B6 /* SceneDelegate.swift */; };
 		FAE22ECF290AC8C100D901B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE22ECE290AC8C100D901B6 /* HomeViewController.swift */; };
@@ -48,11 +48,11 @@
 		FA6FAD6B290AE5AA00411378 /* UITableViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Ext.swift"; sourceTree = "<group>"; };
 		FA6FAD70290AF8AE00411378 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FA6FAD81290B347200411378 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		FABDE2D5290B457600BEE9AE /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		FABDE2D9290BBB6700BEE9AE /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		FABDE2DE290BCB0400BEE9AE /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		FABDE2E0290C12BC00BEE9AE /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FABDE2E2290C2C1200BEE9AE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		FABDE2E7290C5D1D00BEE9AE /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = AppIcon.xcassets; path = ../../../Downloads/AppIcons/AppIcon.xcassets; sourceTree = "<group>"; };
 		FAE22EC7290AC8C100D901B6 /* RickAndMortyCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyCharacters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE22ECA290AC8C100D901B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAE22ECC290AC8C100D901B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,7 +130,6 @@
 			children = (
 				FA6FAD70290AF8AE00411378 /* BaseViewController.swift */,
 				FAE22ECE290AC8C100D901B6 /* HomeViewController.swift */,
-				FABDE2D5290B457600BEE9AE /* SearchResultsController.swift */,
 				FA6FAD4C290ACCE100411378 /* DetailViewController.swift */,
 			);
 			path = VCs;
@@ -167,6 +166,7 @@
 				FAE22ECC290AC8C100D901B6 /* SceneDelegate.swift */,
 				FAE22ED3290AC8C200D901B6 /* Assets.xcassets */,
 				FABDE2E0290C12BC00BEE9AE /* Colors.xcassets */,
+				FABDE2E7290C5D1D00BEE9AE /* AppIcon.xcassets */,
 				FA6FAD54290ACEA700411378 /* Helper */,
 				FA6FAD4B290ACC8600411378 /* Network */,
 				FA6FAD48290ACC7600411378 /* Model */,
@@ -246,6 +246,7 @@
 			files = (
 				FABDE2E1290C12BC00BEE9AE /* Colors.xcassets in Resources */,
 				FAE22ED7290AC8C200D901B6 /* LaunchScreen.storyboard in Resources */,
+				FABDE2E8290C5D1D00BEE9AE /* AppIcon.xcassets in Resources */,
 				FAE22ED4290AC8C200D901B6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,7 +263,6 @@
 				FAE22ECF290AC8C100D901B6 /* HomeViewController.swift in Sources */,
 				FA6FAD65290ADA0C00411378 /* CharacterTableViewCell.swift in Sources */,
 				FA6FAD56290ACFA000411378 /* Info.swift in Sources */,
-				FABDE2D6290B457600BEE9AE /* SearchResultsController.swift in Sources */,
 				FA6FAD5A290AD0DD00411378 /* NetworkHelper.swift in Sources */,
 				FA6FAD4D290ACCE100411378 /* DetailViewController.swift in Sources */,
 				FA6FAD5C290AD45500411378 /* NetworkManager.swift in Sources */,
@@ -434,7 +434,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -464,7 +464,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

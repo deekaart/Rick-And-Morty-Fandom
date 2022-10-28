@@ -9,6 +9,13 @@ import UIKit
 import SnapKit
 import Kingfisher
 
+private enum LabelKeys: String {
+    case name = "Name"
+    case status = "Status"
+    case species = "Species"
+    case gender = "Gender"
+}
+
 class CharacterTableViewCell: UITableViewCell {
 
     private lazy var characterImage: UIImageView = {
@@ -31,7 +38,7 @@ class CharacterTableViewCell: UITableViewCell {
 
         view.axis = .vertical
         view.distribution = .equalSpacing
-        view.spacing = 6
+        view.spacing = 8
 
         return view
     }()
@@ -122,10 +129,11 @@ class CharacterTableViewCell: UITableViewCell {
     }
 
     func setupCell(character: Character) {
-        self.nameLabel.text = "Name: \(character.name ?? "Not Found")"
-        self.statusLabel.text = "Status: \(character.status ?? "Not Found")"
-        self.speciesLabel.text = "Species: \(character.species ?? "Not Found")"
-        self.genderLabel.text = "Gender: \(character.gender ?? "Not Found")"
+        self.nameLabel.attributedText = makeUpAttributedText(from: character.name, labelKey: .name)
+        self.statusLabel.attributedText = makeUpAttributedText(from: character.status?.rawValue, labelKey: .status)
+        self.speciesLabel.attributedText = makeUpAttributedText(from: character.species, labelKey: .species)
+        self.genderLabel.attributedText = makeUpAttributedText(from: character.gender?.rawValue, labelKey: .gender)
+        
         if let imageURL = character.image {
             self.characterImage.kf.setImage(with: URL(string: imageURL),
                                             options: [
@@ -134,6 +142,17 @@ class CharacterTableViewCell: UITableViewCell {
                                                 .cacheOriginalImage
                                             ])
         }
+    }
+
+    private func makeUpAttributedText(from string: String?, labelKey: LabelKeys) -> NSMutableAttributedString {
+        let attrStr = NSMutableAttributedString(string: "\(labelKey.rawValue): ", attributes: [
+            .font : UIFont.systemFont(ofSize: 12, weight: .medium),
+            .foregroundColor: UIColor.appColor(.rmgreen) ?? UIColor.systemGreen
+        ])
+
+        attrStr.append(NSAttributedString(string: string ?? "Not Found"))
+
+        return attrStr
     }
 
 }
