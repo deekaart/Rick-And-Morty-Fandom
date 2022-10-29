@@ -46,7 +46,7 @@ class CharacterTableViewCell: UITableViewCell {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
 
-        label.textColor = Colors.shared.text
+        label.textColor = UIColor.appColor(.text)
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
 
         return label
@@ -55,7 +55,7 @@ class CharacterTableViewCell: UITableViewCell {
     private lazy var statusLabel: UILabel = {
         let label = UILabel()
 
-        label.textColor = Colors.shared.text
+        label.textColor = UIColor.appColor(.text)
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
 
         return label
@@ -64,7 +64,7 @@ class CharacterTableViewCell: UITableViewCell {
     private lazy var speciesLabel: UILabel = {
         let label = UILabel()
 
-        label.textColor = Colors.shared.text
+        label.textColor = UIColor.appColor(.text)
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
 
         return label
@@ -73,7 +73,7 @@ class CharacterTableViewCell: UITableViewCell {
     private lazy var genderLabel: UILabel = {
         let label = UILabel()
 
-        label.textColor = Colors.shared.text
+        label.textColor = UIColor.appColor(.text)
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
 
         return label

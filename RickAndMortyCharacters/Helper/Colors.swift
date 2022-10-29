@@ -7,14 +7,6 @@
 
 import UIKit
 
-public struct Colors {
-    static let shared = Colors()
-    
-    let background = UIColor(named: "background")
-    let text = UIColor(named: "text")
-    let rmgreen = UIColor(named: "rmgreen")
-}
-
 enum AssetsColor {
     case background
     case text

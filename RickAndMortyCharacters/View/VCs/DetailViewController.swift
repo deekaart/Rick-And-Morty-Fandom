@@ -54,7 +54,7 @@ class DetailViewController: BaseViewController<DetailViewModel> {
         let label = UILabel()
 
         label.font = UIFont.systemFont(ofSize: 20.0, weight: .regular)
-        label.textColor = Colors.shared.text
+        label.textColor = UIColor.appColor(.text)
 
         let imageWidthHeight: CGFloat = 15.0
 
@@ -96,7 +96,7 @@ class DetailViewController: BaseViewController<DetailViewModel> {
     private lazy var characterNameLabel: UILabel = {
         let view = UILabel()
 
-        view.textColor = Colors.shared.text
+        view.textColor = UIColor.appColor(.text)
         view.font = UIFont.systemFont(ofSize: 36.0, weight: .medium)
         view.textAlignment = .center
         view.numberOfLines = 0

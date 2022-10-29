@@ -133,7 +133,7 @@ class HomeViewController: BaseViewController<HomeViewModel> {
     private func feedTableView(for pageNumber: Int) {
         self.viewModel.fetchCharacters(pageNumber: pageNumber) { [weak self] fetchedList, paginationAlert in
             guard fetchedList != nil && paginationAlert == nil else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.async {
                     self?.charactersTableView.tableFooterView = nil
                     self?.charactersTableView.layoutIfNeeded()
                 }
@@ -144,10 +144,9 @@ class HomeViewController: BaseViewController<HomeViewModel> {
 
             DispatchQueue.main.async {
                 self?.charactersTableView.tableFooterView = nil
-                self?.charactersTableView.reloadData()
             }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 self?.refreshControl.endRefreshing()
             }
         }
@@ -159,7 +158,7 @@ class HomeViewController: BaseViewController<HomeViewModel> {
 
         self.viewModel.fetchCharacters(by: filterOption, value: value, pageNumber: self.filterPageNumber) { [weak self] fetchedList, paginationAlert in
             guard fetchedList != nil && paginationAlert == nil else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.async {
                     self?.charactersTableView.tableFooterView = nil
                     self?.charactersTableView.layoutIfNeeded()
                 }
@@ -171,10 +170,7 @@ class HomeViewController: BaseViewController<HomeViewModel> {
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 self?.charactersTableView.tableFooterView = nil
-            }
-
-            DispatchQueue.main.async {
-                self?.charactersTableView.reloadData()
+                self?.charactersTableView.layoutIfNeeded()
             }
         }
     }
