@@ -131,8 +131,16 @@ class HomeViewController: BaseViewController<HomeViewModel> {
     }
 
     private func feedTableView(for pageNumber: Int) {
-        self.viewModel.fetchCharacters(pageNumber: pageNumber) { [weak self] fetchedList in
-            self?.charactersList.append(contentsOf: fetchedList)
+        self.viewModel.fetchCharacters(pageNumber: pageNumber) { [weak self] fetchedList, paginationAlert in
+            guard fetchedList != nil && paginationAlert == nil else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self?.charactersTableView.tableFooterView = nil
+                    self?.charactersTableView.layoutIfNeeded()
+                }
+                return
+            }
+
+            self?.charactersList.append(contentsOf: fetchedList!)
 
             DispatchQueue.main.async {
                 self?.charactersTableView.tableFooterView = nil

@@ -14,12 +14,15 @@ class HomeViewModel {
 
     var charactersList: [Character] = []
 
-    func fetchCharacters(pageNumber: Int, completion: @escaping (([Character]) -> Void)) {
+    func fetchCharacters(pageNumber: Int, completion: @escaping (([Character]?, Error?) -> Void)) {
         Task {
             do {
                 let data = try await self.nm.getCharactersByPage(number: pageNumber)
-                completion(data)
+                completion(data, nil)
             } catch(let error) {
+                if error.localizedDescription == "There is nothing here" {
+                    completion(nil, error)
+                }
                 print("\(error.localizedDescription)")
             }
         }
