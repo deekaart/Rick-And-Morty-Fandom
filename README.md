@@ -1,10 +1,11 @@
 # Rick and Morty Characters
 
 ## API
-Whole application used the <a href="https://www.rickandmortyapi.com/" alt="rick and morty api website"> Rick and Morty API</a> for getting the list of
+Application uses <a href="https://www.rickandmortyapi.com/" target="_blank" alt="rick and morty api website"> Rick and Morty API</a> for getting the list of
 all characters and their detailed infos.
 
 ## 3rd Party Frameworks
+
 - SnapKit
 - Kingfisher
 
@@ -14,9 +15,8 @@ Aside from it, for caching images I've used Kingfisher. Since caching, drawing, 
 and requiring more time which would exceed our deadline for task, I chose Kingfisher. It had all the required tools for this case.
 
 ## Screenshots
-
-### Light mode
-Screenshots was taken on iPhone 13 Pro
+Screenshots was taken on iPhone 13 Pro simulator.
+### **Light mode**
 
 <p float="left">
     <img src="https://user-images.githubusercontent.com/61579338/198715994-65547e3e-e2ba-4074-a19b-2655aa7df8a9.png" alt="iPhone 13 Pro" width="200">
@@ -24,7 +24,7 @@ Screenshots was taken on iPhone 13 Pro
     <img src="https://user-images.githubusercontent.com/61579338/198717366-9ac39b59-0d17-42e4-8ff6-496408ed7969.png" alt="iPhone 13 Pro" width="200">
 </p>
 
-### Dark mode
+### **Dark mode**
 
 <p float="left">
     <img src="https://user-images.githubusercontent.com/61579338/198717686-f8e67e29-7141-4522-a7bf-d02adee28193.png" alt="iPhone 13 Pro" width="200">
