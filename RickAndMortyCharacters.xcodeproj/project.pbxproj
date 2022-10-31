@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2904DA29106B6E00C9F7F0 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2904D929106B6E00C9F7F0 /* AppIcon.xcassets */; };
 		FA6FAD4D290ACCE100411378 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FAD4C290ACCE100411378 /* DetailViewController.swift */; };
 		FA6FAD4F290ACDC800411378 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FAD4E290ACDC800411378 /* Character.swift */; };
 		FA6FAD51290ACE0900411378 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FAD50290ACE0900411378 /* Origin.swift */; };
@@ -25,7 +26,6 @@
 		FABDE2DF290BCB0400BEE9AE /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDE2DE290BCB0400BEE9AE /* UIImage+Ext.swift */; };
 		FABDE2E1290C12BC00BEE9AE /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABDE2E0290C12BC00BEE9AE /* Colors.xcassets */; };
 		FABDE2E3290C2C1200BEE9AE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDE2E2290C2C1200BEE9AE /* Colors.swift */; };
-		FABDE2E8290C5D1D00BEE9AE /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABDE2E7290C5D1D00BEE9AE /* AppIcon.xcassets */; };
 		FAD85634291052B80011ECEB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAD85633291052B80011ECEB /* SnapKit */; };
 		FAE22ECB290AC8C100D901B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE22ECA290AC8C100D901B6 /* AppDelegate.swift */; };
 		FAE22ECD290AC8C100D901B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE22ECC290AC8C100D901B6 /* SceneDelegate.swift */; };
@@ -35,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA2904D929106B6E00C9F7F0 /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
 		FA6FAD4C290ACCE100411378 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FA6FAD4E290ACDC800411378 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		FA6FAD50290ACE0900411378 /* Origin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		FABDE2DE290BCB0400BEE9AE /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		FABDE2E0290C12BC00BEE9AE /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FABDE2E2290C2C1200BEE9AE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		FABDE2E7290C5D1D00BEE9AE /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = AppIcon.xcassets; path = ../../../Downloads/AppIcons/AppIcon.xcassets; sourceTree = "<group>"; };
 		FAE22EC7290AC8C100D901B6 /* RickAndMortyCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyCharacters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE22ECA290AC8C100D901B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAE22ECC290AC8C100D901B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,8 +165,8 @@
 				FAE22ECA290AC8C100D901B6 /* AppDelegate.swift */,
 				FAE22ECC290AC8C100D901B6 /* SceneDelegate.swift */,
 				FAE22ED3290AC8C200D901B6 /* Assets.xcassets */,
+				FA2904D929106B6E00C9F7F0 /* AppIcon.xcassets */,
 				FABDE2E0290C12BC00BEE9AE /* Colors.xcassets */,
-				FABDE2E7290C5D1D00BEE9AE /* AppIcon.xcassets */,
 				FA6FAD54290ACEA700411378 /* Helper */,
 				FA6FAD4B290ACC8600411378 /* Network */,
 				FA6FAD48290ACC7600411378 /* Model */,
@@ -246,7 +246,7 @@
 			files = (
 				FABDE2E1290C12BC00BEE9AE /* Colors.xcassets in Resources */,
 				FAE22ED7290AC8C200D901B6 /* LaunchScreen.storyboard in Resources */,
-				FABDE2E8290C5D1D00BEE9AE /* AppIcon.xcassets in Resources */,
+				FA2904DA29106B6E00C9F7F0 /* AppIcon.xcassets in Resources */,
 				FAE22ED4290AC8C200D901B6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
