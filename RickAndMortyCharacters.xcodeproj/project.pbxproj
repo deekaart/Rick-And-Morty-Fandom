@@ -16,7 +16,6 @@
 		FA6FAD5C290AD45500411378 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FAD5B290AD45500411378 /* NetworkManager.swift */; };
 		FA6FAD61290AD97A00411378 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FAD60290AD97A00411378 /* HomeViewModel.swift */; };
 		FA6FAD65290ADA0C00411378 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FAD64290ADA0C00411378 /* CharacterTableViewCell.swift */; };
-		FA6FAD68290AE2A600411378 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FA6FAD67290AE2A600411378 /* SnapKit */; };
 		FA6FAD6A290AE52700411378 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FAD69290AE52700411378 /* UITableView+Ext.swift */; };
 		FA6FAD6C290AE5AA00411378 /* UITableViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FAD6B290AE5AA00411378 /* UITableViewCell+Ext.swift */; };
 		FA6FAD71290AF8AE00411378 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FAD70290AF8AE00411378 /* BaseViewController.swift */; };
@@ -27,6 +26,7 @@
 		FABDE2E1290C12BC00BEE9AE /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABDE2E0290C12BC00BEE9AE /* Colors.xcassets */; };
 		FABDE2E3290C2C1200BEE9AE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDE2E2290C2C1200BEE9AE /* Colors.swift */; };
 		FABDE2E8290C5D1D00BEE9AE /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABDE2E7290C5D1D00BEE9AE /* AppIcon.xcassets */; };
+		FAD85634291052B80011ECEB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAD85633291052B80011ECEB /* SnapKit */; };
 		FAE22ECB290AC8C100D901B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE22ECA290AC8C100D901B6 /* AppDelegate.swift */; };
 		FAE22ECD290AC8C100D901B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE22ECC290AC8C100D901B6 /* SceneDelegate.swift */; };
 		FAE22ECF290AC8C100D901B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE22ECE290AC8C100D901B6 /* HomeViewController.swift */; };
@@ -68,7 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6FAD7B290B10B400411378 /* Kingfisher in Frameworks */,
-				FA6FAD68290AE2A600411378 /* SnapKit in Frameworks */,
+				FAD85634291052B80011ECEB /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,8 +195,8 @@
 			);
 			name = RickAndMortyCharacters;
 			packageProductDependencies = (
-				FA6FAD67290AE2A600411378 /* SnapKit */,
 				FA6FAD7A290B10B400411378 /* Kingfisher */,
+				FAD85633291052B80011ECEB /* SnapKit */,
 			);
 			productName = RickAndMortyCharacters;
 			productReference = FAE22EC7290AC8C100D901B6 /* RickAndMortyCharacters.app */;
@@ -227,8 +227,8 @@
 			);
 			mainGroup = FAE22EBE290AC8C100D901B6;
 			packageReferences = (
-				FA6FAD66290AE2A600411378 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				FA6FAD79290B10B400411378 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FAD85632291052B80011ECEB /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = FAE22EC8290AC8C100D901B6 /* Products */;
 			projectDirPath = "";
@@ -415,7 +415,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D98Q77NHUS;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RickAndMortyCharacters/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -445,7 +445,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D98Q77NHUS;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RickAndMortyCharacters/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -492,14 +492,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FA6FAD66290AE2A600411378 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		FA6FAD79290B10B400411378 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -508,18 +500,26 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		FAD85632291052B80011ECEB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FA6FAD67290AE2A600411378 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA6FAD66290AE2A600411378 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
 		FA6FAD7A290B10B400411378 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FA6FAD79290B10B400411378 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		FAD85633291052B80011ECEB /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAD85632291052B80011ECEB /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
