@@ -20,10 +20,7 @@ class HomeViewModel {
                 let data = try await self.nm.getCharactersByPage(number: pageNumber)
                 completion(data, nil)
             } catch(let error) {
-                if error.localizedDescription == "There is nothing here" {
-                    completion(nil, error)
-                }
-                print("\(error.localizedDescription)")
+                completion(nil, error)
             }
         }
     }
@@ -34,10 +31,7 @@ class HomeViewModel {
                 let data = try await self.nm.getCharactersBy(their: filterOption, value: value, pageNumber: pageNumber)
                 completion(data, nil)
             } catch(let error) {
-                if error.localizedDescription == "There is nothing here" {
-                    completion(nil, error)
-                }
-                print("\(error.localizedDescription)")
+                completion(nil, error)
             }
         }
     }

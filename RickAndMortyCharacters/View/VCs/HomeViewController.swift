@@ -35,15 +35,22 @@ class HomeViewController: BaseViewController<HomeViewModel> {
     private var value: String?
 
     private var isSearchBarEmpty: Bool {
-      return searchController.searchBar.text?.isEmpty ?? true
+        return self.searchController.searchBar.text?.isEmpty ?? true
     }
 
     private var isFiltering: Bool {
-      return searchController.isActive && (!isSearchBarEmpty)
+        return self.searchController.isActive && (!isSearchBarEmpty)
     }
 
     private lazy var searchController: UISearchController = {
-        return UISearchController(searchResultsController: nil)
+        let searchController = UISearchController(searchResultsController: nil)
+
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Characters"
+        searchController.searchBar.scopeButtonTitles = CharacterFilter.allCases.map { $0.rawValue.capitalized }
+
+        return searchController
     }()
 
     private let refreshControl = UIRefreshControl()
@@ -94,14 +101,8 @@ class HomeViewController: BaseViewController<HomeViewModel> {
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.tintColor = UIColor.appColor(.rmgreen)
 
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Characters"
         definesPresentationContext = true
-
-        navigationItem.searchController = searchController
-        searchController.searchBar.scopeButtonTitles = CharacterFilter.allCases.map { $0.rawValue.capitalized }
-        searchController.searchBar.delegate = self
+        navigationItem.searchController = self.searchController
     }
 
     private func setupViews() {
@@ -252,16 +253,6 @@ extension HomeViewController: UISearchResultsUpdating {
     @objc func reload(_ searchBar: UISearchBar) {
         let category = CharacterFilter(rawValue: searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex].lowercased())
         filterContentForSearchText(searchBar.text!, category: category!)
-    }
-}
-
-extension HomeViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        let category = CharacterFilter(rawValue: searchBar.scopeButtonTitles![selectedScope].lowercased())
-        self.filterOption = category
-        self.value = searchBar.text
-        self.filterPageNumber = 0
-        self.filteredCharactersList.removeAll()
     }
 }
 
